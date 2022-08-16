@@ -1,0 +1,918 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Trabajo en clase",
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#Actividad en clase"
+      ],
+      "metadata": {
+        "id": "g9WzD0BMpsaB"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#1"
+      ],
+      "metadata": {
+        "id": "u1sWLeqhp3No"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#####Escriba un programa que solicite dos números enteros y calcule su división. El programa debe definir si la división es exacta o no. Si no es exacta, debe imprimir cuál es su residuo. ¿Qué debería imprimir el programa si la división es entre cero?"
+      ],
+      "metadata": {
+        "id": "bH8QsXWpp7uo"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=int(input(\"Ingrese un número entero: \"))\n",
+        "b=int(input(\"Ingrese otro número entero: \"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mSkIB46fqXVp",
+        "outputId": "de1ccf17-a3f6-44e0-998b-41c9a4e4f49f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Ingrese un número entero: 54\n",
+            "Ingrese otro número entero: 65\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if b==0:\n",
+        "  print(\"No se puede dividir entre 0\")\n",
+        "else:\n",
+        "  c=a/b"
+      ],
+      "metadata": {
+        "id": "FMRPWyxkuWaY"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "d=int(a%b)"
+      ],
+      "metadata": {
+        "id": "98k6M324yECc"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if d==0:\n",
+        "  print(\"La división es exacta, la respuesta es: \",c)\n",
+        "else:\n",
+        "  print(\"La división no es exacta, la respuesta es: \", c, \"el residuo es: \",d)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Tu2d-d1AwUuF",
+        "outputId": "8b6fae33-56d1-4440-9a98-a922460cc0f7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "La división no es exacta, la respuesta es:  0.8307692307692308 el residuo es:  54\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#2"
+      ],
+      "metadata": {
+        "id": "86DMJkVJzt7P"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "####Escriba un programa que pida dos números e indique si uno es múltiplo del otro"
+      ],
+      "metadata": {
+        "id": "lIjvg5Euzzrm"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=int(input(\"Ingrese un número: \"))\n",
+        "b=int(input(\"Ingrese otro número: \"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Tutvw7iN0BmK",
+        "outputId": "a2d81e04-0bc1-4850-bd3d-cab1dba4809f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Ingrese un número: -15\n",
+            "Ingrese otro número: 4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if b==0:\n",
+        "  print(\"Son múltiplos entre si\")\n",
+        "else:\n",
+        "  c=a/b"
+      ],
+      "metadata": {
+        "id": "19dtzAwgvWF2"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if a==0:\n",
+        "  print(\"Son múltiplos entre si\")\n",
+        "else:\n",
+        "  c=a/b"
+      ],
+      "metadata": {
+        "id": "oeUtZrvmzexf"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "d=int(a%b)\n"
+      ],
+      "metadata": {
+        "id": "u4Qlwwslw70V"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if d>0:\n",
+        "  print(\"No son múltiplos\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SFnM33T0vuGM",
+        "outputId": "60748a3e-2377-4e9d-b91a-e2a3212cd899"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "No son múltiplos\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if d==0:\n",
+        "  print(\"Son múltiplos\")"
+      ],
+      "metadata": {
+        "id": "bhoE6YrNzDmM"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#3"
+      ],
+      "metadata": {
+        "id": "eevNey280Hss"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##3.\tEscriba un programa que ordene, de menor a mayor, las edades de tres hermanos. ¿Qué pasaría si son gemelos? ¿Qué pasaría si son trillizos?"
+      ],
+      "metadata": {
+        "id": "Q2FMYbjX0Orh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=str(input(\"Ingrese el nombre de un hermano: \"))\n",
+        "b=str(input(\"Ingrese el nombre de otro hermano: \"))\n",
+        "c=str(input(\"Ingrese el nombre de otro hermano: \"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "awKfLCNH0SgS",
+        "outputId": "13491b2a-b591-4650-8c3c-4a611919bbb4"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Ingrese el nombre de un hermano: ca\n",
+            "Ingrese el nombre de otro hermano: mi\n",
+            "Ingrese el nombre de otro hermano: lo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "año=int(input(\"Ingrese el año actual: \"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "g__ptTwj63bP",
+        "outputId": "94370e4e-a0db-43af-fbf5-45695b5117d9"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Ingrese el año actual: 2022\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "aa=int(input(\"Ingrese el año de nacimiento de \" + a + \": \"))\n",
+        "ma=int(input(\"Ingrese el mes de nacimiento de \" + a + \": \"))\n",
+        "da=int(input(\"Ingrese el día de nacimiento de \" + a + \": \"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6-IrOiqz0883",
+        "outputId": "495a32a2-8db4-4571-a2f9-eecf4b4b4e2c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Ingrese el año de nacimiento de ca: 2003\n",
+            "Ingrese el mes de nacimiento de ca: 2\n",
+            "Ingrese el día de nacimiento de ca: 2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ab=int(input(\"Ingrese el año de nacimiento de \" + b + \": \"))\n",
+        "mb=int(input(\"Ingrese el mes de nacimiento de \" + b + \": \"))\n",
+        "db=int(input(\"Ingrese el día de nacimiento de \" + b + \": \"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rZitrx-d0r0n",
+        "outputId": "a1eb32c2-ebfc-4b6b-c3fe-a505794f346d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Ingrese el año de nacimiento de mi: 2003\n",
+            "Ingrese el mes de nacimiento de mi: 2\n",
+            "Ingrese el día de nacimiento de mi: 3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ac=int(input(\"Ingrese el año de nacimiento de \" + c + \": \"))\n",
+        "mc=int(input(\"Ingrese el mes de nacimiento de \" + c + \": \"))\n",
+        "dc=int(input(\"Ingrese el día de nacimiento de \" + c + \": \"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sDX3D-qD54xc",
+        "outputId": "025ae212-22b4-4cce-9e94-fc08edef90b7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Ingrese el año de nacimiento de lo: 2003\n",
+            "Ingrese el mes de nacimiento de lo: 2\n",
+            "Ingrese el día de nacimiento de lo: 3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "edada=año-aa\n",
+        "edadb=año-ab\n",
+        "edadc=año-ac"
+      ],
+      "metadata": {
+        "id": "rTs1MyDm7F0w"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if aa==ab and ma==mb and mb==mc:\n",
+        "  print(a + \" y \" + b + \" son gemelos\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WuNMV7U99y3P",
+        "outputId": "4ef1aa3e-7466-4fbe-e8b8-afbffe6ab5fd"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "ca y mi son gemelos\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "ixO4yge-j0wi"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if (aa==ac):\n",
+        "  print(a + \" y \" + c + \" son gemelos\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7wri1FF0gxHf",
+        "outputId": "28c68242-1b32-4ea0-b872-4c2151981f2e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "camilo y tomas son gemelos\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if (ab==ac):\n",
+        "  print(b + \" y \" + c + \" son gemelos\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KvAHWHzR7qBT",
+        "outputId": "b7a00e31-abd4-462a-f55c-bca8cc7685cb"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "andrea y tomas son gemelos\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if aa==ab and ab==ac:\n",
+        "  print(a + \" , \" + b + \" y \" + c + \" son trillizos\")"
+      ],
+      "metadata": {
+        "id": "oJqSt0869kKG"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "edada=a\n",
+        "edadb=b\n",
+        "edadc=c"
+      ],
+      "metadata": {
+        "id": "rdNjIyPmjHQT"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "edades=[edada, edadb, edadc]\n",
+        "menamay=sorted(edades)\n",
+        "print(menamay)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0GMHl-7UiB4k",
+        "outputId": "23f8014c-468f-4871-9368-7ba31d97e97d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['andres', 'camilo', 'van']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "TiS06nEFTUtd"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#4"
+      ],
+      "metadata": {
+        "id": "8PwDhVGeTPM4"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##DIAN le ha contratado para identificar si una persona debe pagar impuesto de renta o no. ¿Qué datos debería suministrar? Escriba un programa con su solución."
+      ],
+      "metadata": {
+        "id": "l9aEYzWPTSp7"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "b=str(input(\"¿es usted persona natural o persona juridica? \"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aDSDE_hrULRw",
+        "outputId": "df91e7f6-4ea5-4f3b-b6ea-b5ef94cdb8f2"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "¿es usted persona natural o persona juridica? natural\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if b==\"juridica\":\n",
+        "  print(\"Usted debe pagar el impuesto de renta ya que es una persona juridica.\")\n",
+        "else:\n",
+        "  print(\"Debido a que usted es una persona natural, se le harán unas preguntas a continuación:\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YIQQxZxnUhKp",
+        "outputId": "82aec9ef-ee6e-4b5a-a691-c115517f43c7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Debido a que usted es una persona natural, se le harán unas preguntas a continuación:\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "p=int(input(\"1. ¿De cuanto es su patrimonio bruto? (escribir la cantidad completa solo en números): $\"))\n",
+        "i=int(input(\"2. ¿De cuanto es su ingreso bruto anual? (escribir la cantidad completa solo en números): $\"))\n",
+        "t=int(input(\"3. ¿Cuanto dinero ha gastado utilizando tarjetas de credito en el ultimo año? (escribir la cantidad completa solo en números): $\"))\n",
+        "e=int(input(\"4. ¿Cuanto dinero se le ha consignado en el ultimo año? (escribir la cantidad completa solo en números): $\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "nCzg7fHmWSyS",
+        "outputId": "9b21d24a-9256-407d-fe50-f888f6c9bff2"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "1. ¿De cuanto es su patrimonio bruto? (escribir la cantidad completa solo en números): $500000000000000\n",
+            "2. ¿De cuanto es su ingreso bruto anual? (escribir la cantidad completa solo en números): $23333333\n",
+            "3. ¿Cuanto dinero ha gastado utilizando tarjetas de credito en el ultimo año? (escribir la cantidad completa solo en números): $23333333\n",
+            "4. ¿Cuanto dinero se le ha consignado en el ultimo año? (escribir la cantidad completa solo en números): $2333333333333\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if p>149202000:\n",
+        "  print(\"- Usted debe pagar el impuesto de renta ya que su patrimonio bruto supera los $149202000 millones.\")\n",
+        "if i>46418400:\n",
+        "  print(\"- Usted debe pagar el impuesto de renta ya que su ingreso bruto anual supera los $46418400 millones.\")\n",
+        "if t>46418400:\n",
+        "  print(\"- Usted debe pagar el impuesto de renta ya que sus gastos utilizando tarjetas de credito en el ultimo año superan los $46418400 millones.\")\n",
+        "if e>46418400:\n",
+        "  print(\"- Usted debe pagar el impuesto de renta ya que se le han consignado más de $46418400 millones en el ultimo año.\")\n",
+        "else:\n",
+        "  print(\"- Usted no debe pagar impuesto de renta.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "e8f7Wa85Yc7p",
+        "outputId": "75d87c15-4a77-4ccf-b45e-75726a6ef340"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "- Usted debe pagar el impuesto de renta ya que su patrimonio bruto supera los $149202000 millones.\n",
+            "- Usted debe pagar el impuesto de renta ya que se le han consignado más de $46418400 millones en el ultimo año.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#6"
+      ],
+      "metadata": {
+        "id": "pgOv_px_a6UR"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##Escriba un programa que le pregunte sus cuatro notas y calcule su promedio actual. Si su promedio es mayor a 4.5, se le diga que está eximido del último examen. Si su nota se encuentra entre 3.5 y 4.5 (intervalo abierto) se le indique que debe presentar el examen. Si la nota se encuentra entre 3 y 3.5 (intervalo abierto), se le indique que adicional al examen, debe presentar un trabajo. Si la nota está entre intervalo abierto entre 2 y 3, decir que debe presentar habilitación. De lo contrario, se le debe indicar al estudiante que perdió la materia irremediablemente."
+      ],
+      "metadata": {
+        "id": "PvkajuqQa9Pr"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nota1=float(input(\"Digite la primera nota: \"))\n",
+        "nota2=float(input(\"Digite la segunda nota: \"))\n",
+        "nota3=float(input(\"Digite la tercera nota: \"))\n",
+        "nota4=float(input(\"Digite la cuarta nota: \"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DMMCTepJa_P8",
+        "outputId": "b6bc662f-0caf-43ae-ebc2-ff8dcb35e142"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Digite la primera nota: 1\n",
+            "Digite la segunda nota: 1\n",
+            "Digite la tercera nota: 1\n",
+            "Digite la cuarta nota: 1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "promedio= (nota1 + nota2 + nota3 +nota4)/4\n",
+        "print(\"Su promedio actual es de: \",promedio)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7zUkuO6abUkf",
+        "outputId": "12dde07d-9a0d-4d9d-9562-844e92e43c7b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Su promedio actual es de:  1.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if promedio >= 4.6:\n",
+        "  print(\"Usted está exonerado del ultimo parcial.\")"
+      ],
+      "metadata": {
+        "id": "r4wG5P_0cV3X"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if 3.6 < promedio < 4.5:\n",
+        "  print(\"Usted debe presentar el examen.\")"
+      ],
+      "metadata": {
+        "id": "IS8irQhGdLmr"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if 3.0 < promedio < 3.5:\n",
+        "  print(\"Usted debe presentar un trabajo adicional.\")"
+      ],
+      "metadata": {
+        "id": "jCTlSK9vfKVf"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if 2.0 < promedio < 2.9:\n",
+        "  print(\"Usted debe presentar una habilitación.\")"
+      ],
+      "metadata": {
+        "id": "Lk3kv6PBfQvT"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if promedio <2:\n",
+        "  print(\"Usted perdió la materia y ya no hay oportunidad de salvarla.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_LLTg_WFgFG9",
+        "outputId": "ba117884-b366-4301-b10f-5b49745589be"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Usted perdió la materia y ya no hay oportunidad de salvarla.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#7"
+      ],
+      "metadata": {
+        "id": "4xGsKAOviSqB"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##Escriba un programa que pregunte tu fecha de nacimiento, e indique cuántos días faltan para tu cumpleaños y cuántos años tienes."
+      ],
+      "metadata": {
+        "id": "Sg6dCVbZiU4E"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=int(input(\"ingrese su año de nacimiento \"))\n",
+        "m=int(input(\"ingrese su mes de nacimiento \"))\n",
+        "d=int(input(\"ingrese su día de nacimiento \"))\n",
+        "fn= (d , m, a)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ia-d1iWUiYwX",
+        "outputId": "011d9f1c-ec88-423f-ee62-16face46cd63"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "ingrese su año de nacimiento 2000\n",
+            "ingrese su mes de nacimiento 8\n",
+            "ingrese su día de nacimiento 30\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "aa=int(input(\"ingrese el año actual \"))\n",
+        "am=int(input(\"ingrese el mes actual \"))\n",
+        "ad=int(input(\"ingrese el día actual \"))\n",
+        "fa= (ad, am, aa)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vndgE1idjZaA",
+        "outputId": "8c1a2de0-4c5a-455d-d0a7-75f99c9b42fc"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "ingrese el año actual 2022\n",
+            "ingrese el mes actual 8\n",
+            "ingrese el día actual 15\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "edad=aa-a\n",
+        "cfm= m-am\n",
+        "cfd= d-ad\n",
+        "print(\"Faltan\" ,cfd, \"días y \" ,cfm, \"meses para tu cumpleaños, además tienes:\" ,edad, \"años.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OLhV0ovEk27i",
+        "outputId": "66bf7100-d475-41db-bc3b-cc672ffc172d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Faltan 15 días y  0 meses para tu cumpleaños, además tienes: 22 años.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
