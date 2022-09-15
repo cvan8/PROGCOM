@@ -1,0 +1,1850 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#Errores en python"
+      ],
+      "metadata": {
+        "id": "xD5SVuWLh8Re"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "\n",
+        "#1.Identation Error"
+      ],
+      "metadata": {
+        "id": "UfAlYML_iu90"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##El error de identación puede ocurrir cuando los espacios o tabulaciones no están colocados correctamente."
+      ],
+      "metadata": {
+        "id": "hVvXXt3io6eb"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###En este ejemplo se puede ver que se produce un error de identación, ya que \"except\" no toma una lista de excepciones que se especifiquen de esta forma. La excepción IndexError no está siendo capturada por el informe except; más bien, la excepción termina siendo enlazada a un parámetro llamado IndexError."
+      ],
+      "metadata": {
+        "id": "SVAiS-AcjJuL"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "     l = [\"a\", \"b\"]\n",
+        "    int(l[2])\n",
+        "  except ValueError, IndexError:  # To catch both exceptions, right?\n",
+        "    pass"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 130
+        },
+        "id": "_g-ke6LGiUCl",
+        "outputId": "a1cff2ab-e26a-4ebf-b938-15b2116717ef"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "IndentationError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<tokenize>\"\u001b[0;36m, line \u001b[0;32m3\u001b[0m\n\u001b[0;31m    int(l[2])\u001b[0m\n\u001b[0m    ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m unindent does not match any outer indentation level\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###La forma correcta de capturar varias excepciones en un informe except, es especificar el primer parámetro como una tupla que contiene todas las excepciones a ser capturadas. Además, para la máxima portabilidad, utiliza la palabra clave as."
+      ],
+      "metadata": {
+        "id": "CP6CONeXj7TG"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "  l = [\"a\", \"b\"]\n",
+        "  int(l[2])\n",
+        "except (ValueError, IndexError) as e:  \n",
+        "  pass\n",
+        "\n",
+        "  "
+      ],
+      "metadata": {
+        "id": "wygVHXW2kCfc"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#2. SyntaxError por parentesis"
+      ],
+      "metadata": {
+        "id": "bbix8IQhlSeW"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##El error de sintaxis ocurre cuando existe un error de interpretación, generalmente por la falta de algo."
+      ],
+      "metadata": {
+        "id": "oUfQbzqTmH2n"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###En este codigo se puede observar que da un error de sintaxis que señala \"print b\", esto dado porque el error se encuentra aquí."
+      ],
+      "metadata": {
+        "id": "qC_yQ7cJnlEo"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=10\n",
+        "b=20\n",
+        "c=a+b\n",
+        "print(a)\n",
+        "print(c)\n",
+        "print b"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 130
+        },
+        "id": "_Ud8jSO2liL9",
+        "outputId": "9d6a1686-d6fd-4a82-b620-1579e00afbf4"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-13-6f3c7f616712>\"\u001b[0;36m, line \u001b[0;32m6\u001b[0m\n\u001b[0;31m    print b\u001b[0m\n\u001b[0m          ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m Missing parentheses in call to 'print'. Did you mean print(b)?\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###En este caso se puede hacer caso a lo que recomienda el error. Corregir este error es muy sencillo puesto que solo es necesario agregar parentesis: \"print(b)\""
+      ],
+      "metadata": {
+        "id": "wSaubu4ulZmG"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=10\n",
+        "b=20\n",
+        "c=a+b\n",
+        "print(a)\n",
+        "print(c)\n",
+        "print (b)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oPJMFheZoVM9",
+        "outputId": "487794f0-14d7-4bee-8d62-471e3eb0cf53"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "10\n",
+            "30\n",
+            "20\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#3. ZeroDivisonError\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "7R6Emn5EpZNj"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Este es un erorr que ocurre cuando se intenta dividir entre cero."
+      ],
+      "metadata": {
+        "id": "qHu0Gh0spk5y"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "En este ejemplo, da error si se intena dividir un numero entre cero. Al ser una operación invalida da error."
+      ],
+      "metadata": {
+        "id": "SPz2eGElp1vi"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=int(input(\"Ingrese un número entero: \"))\n",
+        "b=int(input(\"Ingrese otro número entero: \"))\n",
+        "tipo= \"División exacta\" if (a%b)==0 else \"División no exacta\"\n",
+        "print(tipo)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 252
+        },
+        "id": "BVxLj8SjqcBp",
+        "outputId": "724a70b0-f299-403e-8470-dcebe0f6e277"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Ingrese un número entero: 5\n",
+            "Ingrese otro número entero: 0\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "ZeroDivisionError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mZeroDivisionError\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-21-6b8eec5bfe56>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0ma\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Ingrese un número entero: \"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0mb\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Ingrese otro número entero: \"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0mtipo\u001b[0m\u001b[0;34m=\u001b[0m \u001b[0;34m\"División exacta\"\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m%\u001b[0m\u001b[0mb\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m==\u001b[0m\u001b[0;36m0\u001b[0m \u001b[0;32melse\u001b[0m \u001b[0;34m\"División no exacta\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      4\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mtipo\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mZeroDivisionError\u001b[0m: integer division or modulo by zero"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Una solución puede ser no dividir entre cero. por otro lado se puede agregar una condición al guardar la variable que de cero."
+      ],
+      "metadata": {
+        "id": "oNBe4zxMqfoR"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=int(input(\"Ingrese un número entero: \"))\n",
+        "b=int(input(\"Ingrese otro número entero: \"))\n",
+        "if b==0:\n",
+        "  print(\"La división no es valida\")\n",
+        "tipo= \"División exacta\" if (a%b)==0 else \"División no exacta\"\n",
+        "print(tipo)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Eu0OU-oerAg-",
+        "outputId": "0e31746c-4c59-4523-d0ca-6ccea66a6fee"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Ingrese un número entero: 4\n",
+            "Ingrese otro número entero: 5\n",
+            "División no exacta\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#4. NameError"
+      ],
+      "metadata": {
+        "id": "RMAqIKLBsSh6"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Ocurre cuando se intenta usar una variable, función o módulo que no existe o no se usó de manera válida"
+      ],
+      "metadata": {
+        "id": "2bzQwYZ3tvEo"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###En este ejemplo marca el error ya que no hay una asignación anterior para \"ejemplo\""
+      ],
+      "metadata": {
+        "id": "aqqySOeluMe4"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(ejemplo)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 165
+        },
+        "id": "QV7K01D_uOr4",
+        "outputId": "998cff8a-7eef-432e-f34f-a3b4cf2ab212"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-42-8cc315ab8c59>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mejemplo\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'ejemplo' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se puede solucionar asignando un valor a \"ejemplo\""
+      ],
+      "metadata": {
+        "id": "XX1AfQIOubRP"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ejemplo=\"Hola mundo\"\n",
+        "print(ejemplo)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KaC6nSFaukd2",
+        "outputId": "b5747893-7200-43b8-a4a4-5d1540ad15d3"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hola mundo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#5. ValueError"
+      ],
+      "metadata": {
+        "id": "AQu3n_UXsZOy"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se genera cuando una función recibe un argumento del tipo correcto pero un valor inapropiado"
+      ],
+      "metadata": {
+        "id": "aKYCVn6vu2oF"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###En este ejemplo se observa que hay un error ya que no se encuentra el \"4\" en la lista"
+      ],
+      "metadata": {
+        "id": "BqNAN955vBZV"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ejemplo.remove(4)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 165
+        },
+        "id": "VQYU337-vEoj",
+        "outputId": "1ab35888-fd68-4636-d281-abd7a46a700c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ValueError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-46-607bebb2c1a5>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mejemplo\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mremove\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m4\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mValueError\u001b[0m: list.remove(x): x not in list"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se soluciona agregando la lista para que el \"4\" encuentre su valor correspondiente"
+      ],
+      "metadata": {
+        "id": "WF6WKxqKv9SI"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ejemplo=[\"banana\",\"sandía\", 4, 5, False]\n",
+        "ejemplo.remove(4)\n",
+        "ejemplo"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kAYUUqgFvQbz",
+        "outputId": "54d51bcf-3e4e-4748-8b6a-8075169a752c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['banana', 'sandía', 5, False]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 47
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#6. TypeError"
+      ],
+      "metadata": {
+        "id": "pygSFOs9shui"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Ocurre cuando el tipo de datos de los objetos en una operación es inapropiado."
+      ],
+      "metadata": {
+        "id": "kuZ-BneOwfq_"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###En este ejemplo da error gracias a que se está mezclando numeros con letras."
+      ],
+      "metadata": {
+        "id": "uATE4L2zwm-m"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "codigo = \"Codigo\"\n",
+        "num = 4\n",
+        "print(codigo + num + codigo)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 200
+        },
+        "id": "Q5SgAmNZwpQG",
+        "outputId": "fcb2873a-694d-42a8-d315-0876e8af7819"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-49-76fda0d719c7>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mcodigo\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m\"Codigo\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0mnum\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;36m4\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcodigo\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mnum\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0mcodigo\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m: can only concatenate str (not \"int\") to str"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se puede solucionar separando los componentes para que no queden mezclados."
+      ],
+      "metadata": {
+        "id": "6ADk1hYqxGdG"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "codigo = \"Codigo\"\n",
+        "num = 4\n",
+        "print(codigo + codigo)\n",
+        "print(num)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1KWccMs-xKPF",
+        "outputId": "671a5301-94d4-43b9-8a91-add66caf8b5b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "CodigoCodigo\n",
+            "4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#7. IndexError\n"
+      ],
+      "metadata": {
+        "id": "5SzG4klbsco6"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###surge si se accedes a índices no válidos en tu lista de Python"
+      ],
+      "metadata": {
+        "id": "_CTbLq98yCA-"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###En este ejemplo se puede observar que el \"3\" está fuera del rango de la lista"
+      ],
+      "metadata": {
+        "id": "LUHhNWYD0Q_x"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lst = ['Alice', 'Bob', 'Carl']\n",
+        "print(lst[3])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 183
+        },
+        "id": "Zbyq3k55yP09",
+        "outputId": "e76779be-af45-4aae-9ad3-065fc829f360"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "IndexError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mIndexError\u001b[0m                                Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-61-32843ee359be>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mlst\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m'Alice'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'Bob'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'Carl'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlst\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m3\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mIndexError\u001b[0m: list index out of range"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se puede solucionar agregando un número que si se encuentre en la lista"
+      ],
+      "metadata": {
+        "id": "ZzNdlAR30h8I"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lst = ['Alice', 'Bob', 'Carl']\n",
+        "print(lst[2])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YuwpP1mr0q0X",
+        "outputId": "29b8eb88-b7bd-4278-c8ae-c4be559dcba3"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Carl\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#8. UnboundLocalError"
+      ],
+      "metadata": {
+        "id": "QQCyT8X_spdi"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Ocurre cuando hacemos referencia a una variable local antes de asignarle un valor en una función\n"
+      ],
+      "metadata": {
+        "id": "J_40CNQg19Hu"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se ve que da error gracias a que \"e\" por no tener un valor en la función"
+      ],
+      "metadata": {
+        "id": "qQu_JUGX2Y0V"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import sys\n",
+        "\n",
+        "def bar(i):\n",
+        "    if i == 1:\n",
+        "        raise KeyError(1)\n",
+        "    if i == 2:\n",
+        "        raise ValueError(2)\n",
+        "\n",
+        "def bad():\n",
+        "    e = None\n",
+        "    try:\n",
+        "        bar(int(sys.argv[1]))\n",
+        "    except KeyError as e:\n",
+        "        print('key error')\n",
+        "    except ValueError as e:\n",
+        "        print('value error')\n",
+        "    print(e)\n",
+        "\n",
+        "bad()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 339
+        },
+        "id": "2wEi_Iry1E4v",
+        "outputId": "f20a1d4b-1b50-4717-b275-84f77b27f94a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "value error\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "UnboundLocalError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mUnboundLocalError\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-71-362926843aab>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     17\u001b[0m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0me\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     18\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 19\u001b[0;31m \u001b[0mbad\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;32m<ipython-input-71-362926843aab>\u001b[0m in \u001b[0;36mbad\u001b[0;34m()\u001b[0m\n\u001b[1;32m     15\u001b[0m     \u001b[0;32mexcept\u001b[0m \u001b[0mValueError\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     16\u001b[0m         \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'value error'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 17\u001b[0;31m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0me\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     18\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m \u001b[0mbad\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mUnboundLocalError\u001b[0m: local variable 'e' referenced before assignment"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se puede solucionar asignando un valor en la función para la parte que marcó error, En este caso en la \"e\"."
+      ],
+      "metadata": {
+        "id": "UZj63ve72vxE"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import sys\n",
+        "\n",
+        "def bar(i):\n",
+        "    if i == 1:\n",
+        "        raise KeyError(1)\n",
+        "    if i == 2:\n",
+        "        raise ValueError(2)\n",
+        "\n",
+        "def good():\n",
+        "    exception = None\n",
+        "    try:\n",
+        "        bar(int(sys.argv[1]))\n",
+        "    except KeyError as e:\n",
+        "        exception = e\n",
+        "        print('key error')\n",
+        "    except ValueError as e:\n",
+        "        exception = e\n",
+        "        print('value error')\n",
+        "    print(exception)\n",
+        "\n",
+        "good()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xbLT6_9u2Fme",
+        "outputId": "030a8ed4-ce6a-42c6-d802-7013e5e5330f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "value error\n",
+            "invalid literal for int() with base 10: '-f'\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#9. ModuleNotFoundError"
+      ],
+      "metadata": {
+        "id": "EcrYRkNoswEp"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Este error ocurre cuando intenta acceder o usar un módulo que no se puede encontrar"
+      ],
+      "metadata": {
+        "id": "d3l36nCc3ay5"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Ocurre porque no se puede encontrar foo para importarlo."
+      ],
+      "metadata": {
+        "id": "vpvFegwX3iiy"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import mod\n",
+        "mybar = mod.Bar()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 321
+        },
+        "id": "k-aUFOg93IZa",
+        "outputId": "7afc54c3-3717-477c-88e6-6a609106479c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ModuleNotFoundError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-78-f618db09cd22>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mimport\u001b[0m \u001b[0mmod\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0mmybar\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mmod\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mBar\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mModuleNotFoundError\u001b[0m: No module named 'mod'",
+            "",
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0;32m\nNOTE: If your import is failing due to a missing package, you can\nmanually install dependencies using either !pip or !apt.\n\nTo view examples of installing some common dependencies, click the\n\"Open Examples\" button below.\n\u001b[0;31m---------------------------------------------------------------------------\u001b[0m\n"
+          ],
+          "errorDetails": {
+            "actions": [
+              {
+                "action": "open_url",
+                "actionText": "Open Examples",
+                "url": "/notebooks/snippets/importing_libraries.ipynb"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se soluciona consiguiendo el paquete del modulo a importar."
+      ],
+      "metadata": {
+        "id": "Ft8xPY7i4LGI"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#10. KeyError"
+      ],
+      "metadata": {
+        "id": "IOBwsvDtsz2y"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Ocurre cuando se intenta acceder a un diccionario con una clave que no existe."
+      ],
+      "metadata": {
+        "id": "0B2Fp0OZ4gPo"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Este código tomará el nombre que proporcione en el aviso e intentará recuperar la edad de esa persona. Lo que escriba en el indicador se usará como clave para el diccionario de edades, en la línea 4."
+      ],
+      "metadata": {
+        "id": "DeAJb-Rf6C_H"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "student = {\n",
+        "  \"name\": \"John\",\n",
+        "  \"course\": \"Python\",\n",
+        "}\n",
+        "\n",
+        "print(student[\"age\"])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 200
+        },
+        "id": "tay_utct4nTO",
+        "outputId": "e046bc44-3339-4e00-f49b-257934812f35"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "KeyError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-7-17c8f8fa67ef>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      4\u001b[0m }\n\u001b[1;32m      5\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mstudent\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\"age\"\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mKeyError\u001b[0m: 'age'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Podemos usar la \"in\" palabra clave para verificar si un elemento existe en un diccionario.\n",
+        "\n",
+        "Usando una if...elsedeclaración, devolvemos el artículo si existe o devolvemos un mensaje al usuario para notificarle que no se pudo encontrar el artículo."
+      ],
+      "metadata": {
+        "id": "IEn0F8w0cFa-"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "student = {\n",
+        "  \"name\": \"John\",\n",
+        "  \"course\": \"Python\",\n",
+        "  \"age\": 20\n",
+        "}\n",
+        "\n",
+        "getStudentInfo = input(\"What info about the student do you want? \")\n",
+        "\n",
+        "if getStudentInfo in student:\n",
+        "    print(f\"The value for your request is {student[getStudentInfo]}\")\n",
+        "else:\n",
+        "\tprint(f\"There is no parameter with the '{getStudentInfo}' key. Try inputing name, course, or age.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WffqmOLpb_HI",
+        "outputId": "e3da92ce-5b6b-4344-9bf1-0d2728b18146"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "What info about the student do you want? John\n",
+            "There is no parameter with the 'John' key. Try inputing name, course, or age.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#11. NameError por no definir."
+      ],
+      "metadata": {
+        "id": "e10BvbOas3uZ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Ocurre por no definir una variable."
+      ],
+      "metadata": {
+        "id": "293sN_eheE3N"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(nombre)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 165
+        },
+        "id": "8NysIDQTeMbo",
+        "outputId": "9295a2e6-8c0a-4bdb-b00a-c507575143aa"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-33-7d9165b99c7d>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnombre\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'nombre' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nombre=\"Camilo\"\n",
+        "print(nombre)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lHybi9FM41Ut",
+        "outputId": "1cfdc8db-00bc-42fc-bb10-88daef3db502"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Camilo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Una opción puede ser cambiar la condición."
+      ],
+      "metadata": {
+        "id": "fuOaVJrQeYSH"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = 3\n",
+        "\n",
+        "if x < 0:\n",
+        "  raise Exception(\"Sorry, no numbers below zero\")\n",
+        "else:\n",
+        "  print(x)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6_1xIdU1eqF2",
+        "outputId": "ae46784d-fe12-44ae-99d4-da5e01d112c1"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#12. EOFError"
+      ],
+      "metadata": {
+        "id": "zWIlcU9fs7rg"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se genera cuando una de las funciones incorporadas input() o raw_input() alcanza una condición de fin de archivo (EOF) sin leer ningún dato."
+      ],
+      "metadata": {
+        "id": "wjcsCW17mIM9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for x in range(5):\n",
+        "    valor=int(input(\"Ingrese 5 nombres:\"))\n",
+        "    nombres.append(valor)\n",
+        "    longitudes.append(len(nombres[x])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 130
+        },
+        "id": "cw-YGnRdmPOZ",
+        "outputId": "5b804ca3-af63-40b6-f34e-c04a99a7a2d3"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-25-3a99a3d53d49>\"\u001b[0;36m, line \u001b[0;32m4\u001b[0m\n\u001b[0;31m    longitudes.append(len(nombres[x])\u001b[0m\n\u001b[0m                                     ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m unexpected EOF while parsing\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for x in range(5):\n",
+        "    valor=input(\"Ingrese 5 nombres:\")   \n",
+        "    nombres.append(valor)\n",
+        "    longitudes.append(len(nombres[x]))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 363
+        },
+        "id": "VTp3Od_14Z82",
+        "outputId": "93eb4765-2c78-4486-fde8-e683bd6af6ef"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "KeyboardInterrupt",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-28-ab108ec4c43d>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mx\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m5\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m     \u001b[0mvalor\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Ingrese 5 nombres:\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m     \u001b[0mnombres\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mappend\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mvalor\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m     \u001b[0mlongitudes\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mappend\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnombres\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.7/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36mraw_input\u001b[0;34m(self, prompt)\u001b[0m\n\u001b[1;32m    861\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_ident\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    862\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_header\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 863\u001b[0;31m             \u001b[0mpassword\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mFalse\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    864\u001b[0m         )\n\u001b[1;32m    865\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.7/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36m_input_request\u001b[0;34m(self, prompt, ident, parent, password)\u001b[0m\n\u001b[1;32m    902\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    903\u001b[0m                 \u001b[0;31m# re-raise KeyboardInterrupt, to truncate traceback\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 904\u001b[0;31m                 \u001b[0;32mraise\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Interrupted by user\"\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    905\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mException\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    906\u001b[0m                 \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlog\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwarning\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Invalid Message:\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mexc_info\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mTrue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m: Interrupted by user"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Solución"
+      ],
+      "metadata": {
+        "id": "2GIZMufgnVKQ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "try:\n",
+        "    n = int(input())\n",
+        "    print(n * 10)\n",
+        "    \n",
+        "except EOFError as e:\n",
+        "    print(e)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5B1yb40ambYI",
+        "outputId": "dc3155e7-279e-410d-eabc-cbf547cc3506"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "23\n",
+            "230\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#13. AssertionError"
+      ],
+      "metadata": {
+        "id": "IafEzYkts-rS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###El usuario declara que una condición es verdadera usando una declaración de afirmación antes de ejecutar el módulo. Si la condición es True , el control simplemente pasa a la siguiente línea de código. En caso de que sea falso , el programa deja de ejecutarse y devuelve la excepción  AssertionError ."
+      ],
+      "metadata": {
+        "id": "PPmMs1_lnKzd"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = 1\n",
+        "y = 0\n",
+        "assert y != 0, \"Invalid Operation\" # denominator can't be 0\n",
+        "print(x / y)"
+      ],
+      "metadata": {
+        "id": "iug7oTndnLyf",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 217
+        },
+        "outputId": "cda6395f-6214-4d80-d83a-4d285607303b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "AssertionError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mAssertionError\u001b[0m                            Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-10-909e54412347>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mx\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0my\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0;32massert\u001b[0m \u001b[0my\u001b[0m \u001b[0;34m!=\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"Invalid Operation\"\u001b[0m \u001b[0;31m# denominator can't be 0\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      4\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m \u001b[0;34m/\u001b[0m \u001b[0my\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mAssertionError\u001b[0m: Invalid Operation"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Solución"
+      ],
+      "metadata": {
+        "id": "c3juQklKnRUo"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "    x = 1\n",
+        "    y = 0\n",
+        "    assert y != 0, \"Invalid Operation\"\n",
+        "    print(x / y)\n",
+        " \n",
+        "# the errror_message provided by the user gets printed\n",
+        "except AssertionError as msg:\n",
+        "    print(msg)"
+      ],
+      "metadata": {
+        "id": "5Mdebco_nOUN",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "87100c15-16b5-43eb-b7c5-d6ee15cc638a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Invalid Operation\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#14. SyntaxError por comillas"
+      ],
+      "metadata": {
+        "id": "1VWb1SJdtCqJ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Esta excepción se deriva de RuntimeError. Los métodos abstractos en clases definidas por el usuario deben generar esta excepción cuando las clases derivadas anulan el método."
+      ],
+      "metadata": {
+        "id": "yFEgXU9GngKh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(Hola mundo)"
+      ],
+      "metadata": {
+        "id": "J4y4PpkjoBc8",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 130
+        },
+        "outputId": "d0d35933-abe4-4746-c69d-1cd60c3629e8"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-8-79bb49c0df15>\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    print(Hola mundo)\u001b[0m\n\u001b[0m                   ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se soluciona poniendo las comillas."
+      ],
+      "metadata": {
+        "id": "Gl8B4yca2FTM"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"Hola mundo\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GDyhxlHx2J88",
+        "outputId": "cb2f0ff3-9990-4973-e743-6ac941624c02"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hola mundo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#15. NameError por datos invalidos."
+      ],
+      "metadata": {
+        "id": "f91n-9_FtIb4"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Ocurre por no poner el dato entre comillas. Python lo lee como número y produce error."
+      ],
+      "metadata": {
+        "id": "iPnEyii3oI7e"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nombre=Camilo\n",
+        "print(nombre)"
+      ],
+      "metadata": {
+        "id": "ZH0kCgnvoRZH",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 183
+        },
+        "outputId": "674675e2-769e-48da-dcde-0d9d265bc583"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-36-6c39b0420fd3>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mnombre\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mCamilo\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnombre\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'Camilo' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se soluciona poniendo las comillas al dato."
+      ],
+      "metadata": {
+        "id": "RjcdHt165ux9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nombre=\"Camilo\"\n",
+        "print(nombre)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZA6w1Ho_51Fz",
+        "outputId": "5325b4fe-2b89-484c-facd-b4ec3b1d4240"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Camilo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#16. AttributeError"
+      ],
+      "metadata": {
+        "id": "qxPp_c9ptOVa"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se genera un AttributeError cuando falla una referencia o asignación de atributo, como cuando se hace referencia a un atributo inexistente."
+      ],
+      "metadata": {
+        "id": "MOf8EbK0oZDP"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x=2876\n",
+        "print(x.len(76))"
+      ],
+      "metadata": {
+        "id": "8Aryx4Jwoith",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 183
+        },
+        "outputId": "18fe9edc-e372-433a-9d29-62c126e217d1"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "AttributeError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-3-a611125471dc>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;36m2876\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m76\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mAttributeError\u001b[0m: 'int' object has no attribute 'len'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Este error se puede solucionar cambiando el tipo de variable de x."
+      ],
+      "metadata": {
+        "id": "BcJaqYGuwgrR"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#17. SyntaxError: invalid syntax"
+      ],
+      "metadata": {
+        "id": "PHW9a_U8tSzg"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###El error se produce por unos dos puntos sobrantes"
+      ],
+      "metadata": {
+        "id": "4xAiD5df3wx-"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"Hola mundo\"):"
+      ],
+      "metadata": {
+        "id": "AQ7uvXlZpMe0",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 130
+        },
+        "outputId": "d533c2d7-b333-4bff-a1ad-cdc10a191894"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-20-63e393ab679c>\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    print(\"Hola mundo\"):\u001b[0m\n\u001b[0m                        ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se puede solucionar quitando los dos puntos que sobran"
+      ],
+      "metadata": {
+        "id": "Z6S8Dgdr3tCP"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"Hola mundo\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "H-WlUgSX34cW",
+        "outputId": "a5ee60cd-6034-4655-d90f-70aa8d74668e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hola mundo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#18. NameError por mayúsculas."
+      ],
+      "metadata": {
+        "id": "UuPo3ha7tW_w"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Python reconoce las mayúsculas y minúsculas y por eso reconoce a print como algo indefinido "
+      ],
+      "metadata": {
+        "id": "6u6lV-Uk7o9p"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Print(\"Hola mundo\")"
+      ],
+      "metadata": {
+        "id": "4AfHV94uowQD",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 165
+        },
+        "outputId": "5e2e344e-e787-4b61-a029-105dfc77c135"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-44-1572e5d5273b>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mPrint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Hola mundo\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'Print' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se soluciona poniendo print en minúsucla."
+      ],
+      "metadata": {
+        "id": "YxwS4iVf72Lh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"Hola mundo\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LCeqWGEP78q_",
+        "outputId": "61d1bb52-e987-44b3-e2a9-a14e2b6a6fd6"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Hola mundo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#19. IdentationError por mala ubicación."
+      ],
+      "metadata": {
+        "id": "kplY4JNDtbng"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Ocurre cuando se ubica mal un dato."
+      ],
+      "metadata": {
+        "id": "bqUNsaCcpoRF"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x=19\n",
+        "if x>10:\n",
+        "print(\"x es mayor que 10\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 130
+        },
+        "id": "IfT7ZKoJpv81",
+        "outputId": "c267f3f6-d348-40d6-972a-c837456d50d2"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "IndentationError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-59-62104be95101>\"\u001b[0;36m, line \u001b[0;32m3\u001b[0m\n\u001b[0;31m    print(\"x es mayor que 10\")\u001b[0m\n\u001b[0m        ^\u001b[0m\n\u001b[0;31mIndentationError\u001b[0m\u001b[0;31m:\u001b[0m expected an indented block\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###En este caso se debe correr un tab la inea de print."
+      ],
+      "metadata": {
+        "id": "C3jk2Gas9lk2"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x=19\n",
+        "if x>10:\n",
+        "  print(\"x es mayor que 10\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ex1rXunv8JTx",
+        "outputId": "04fbba68-7a09-4d46-acc0-d1643ca368dc"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x es mayor que 10\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#20. KeyBoardInterrupt"
+      ],
+      "metadata": {
+        "id": "6nd3sibntg7S"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Ocurre cuando se interrumpe forzadamente una ejecución."
+      ],
+      "metadata": {
+        "id": "2wnLM2xIqG69"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "opciones=[\"piedra\", \"papel\", \"tijera\", \"spock\" , \"lagarto\" ]\n",
+        "while True\n",
+        "    print(\"\")\n",
+        "    a= input(\"Elige: piedra, papel, tijera, spock o lagarto: \").lower()\n",
+        "    if a not in opciones:\n",
+        "        print(\"No valido\")\n",
+        "        continue\n",
+        "    b = random.choice(opciones)\n",
+        "    print(\"Pelas contra: \",b)\n",
+        "    if a == b:\n",
+        "     print(\"Empate ---\" ,a)\n",
+        "\n",
+        "    elif a ==\"piedra\" and b == \"tijeras\":\n",
+        "        print(\"Ganaste! ---\"+a+\" Perdiste \"+b)\n",
+        "    elif a ==\"piedra\" and b == \"lagarto\":\n",
+        "        print(\"Ganaste! ---\"+a+\" Perdiste \"+b)\n",
+        "\n",
+        "    elif a ==\"tijera\" and b == \"papel\":\n",
+        "        print(\"Ganaste! ---\"+a+\" Perdiste \"+b)\n",
+        "    elif a ==\"tijera\" and b == \"lagarto\":\n",
+        "        print(\"Ganaste! ---\"+a+\" Perdiste \"+b)\n",
+        "\n",
+        "    elif a ==\"papel\" and b == \"piedra\":\n",
+        "        print(\"Ganaste! ---\"+a+\" Perdiste \"+b)\n",
+        "    elif a ==\"papel\" and b == \"spock\":\n",
+        "        print(\"Ganaste! ---\"+a+\" Perdiste \"+b)\n",
+        "\n",
+        "    elif a ==\"spock\" and b == \"tijera\":\n",
+        "        print(\"Ganaste! ---\"+a+\" Perdiste \"+b)\n",
+        "    elif a ==\"spock\" and b == \"piedra\":\n",
+        "        print(\"Ganaste! ---\"+a+\" Perdiste \"+b)\n",
+        "    \n",
+        "    elif a ==\"lagarto\" and b == \"spock\":\n",
+        "        print(\"Ganaste! ---\"+a+\" Perdiste \"+b)\n",
+        "    elif a ==\"lagarto\" and b == \"papel\":\n",
+        "        print(\"Ganaste! ---\"+a+\" Perdiste \"+b)\n",
+        "    \n",
+        "    else:\n",
+        "        print(\"Perdiste! ---\"+b+\" derrota \"+a)"
+      ],
+      "metadata": {
+        "id": "1N1DdHCrqERm",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 397
+        },
+        "outputId": "f97d8e41-aaa7-4833-ad10-d06ca801353e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "KeyboardInterrupt",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-7-3359f4517f82>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;32mwhile\u001b[0m \u001b[0;32mTrue\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 5\u001b[0;31m     \u001b[0ma\u001b[0m\u001b[0;34m=\u001b[0m \u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Elige: piedra, papel, tijera, spock o lagarto: \"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlower\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      6\u001b[0m     \u001b[0;32mif\u001b[0m \u001b[0ma\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mopciones\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      7\u001b[0m         \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"No valido\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.7/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36mraw_input\u001b[0;34m(self, prompt)\u001b[0m\n\u001b[1;32m    861\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_ident\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    862\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_header\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 863\u001b[0;31m             \u001b[0mpassword\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mFalse\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    864\u001b[0m         )\n\u001b[1;32m    865\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.7/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36m_input_request\u001b[0;34m(self, prompt, ident, parent, password)\u001b[0m\n\u001b[1;32m    902\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    903\u001b[0m                 \u001b[0;31m# re-raise KeyboardInterrupt, to truncate traceback\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 904\u001b[0;31m                 \u001b[0;32mraise\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Interrupted by user\"\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    905\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mException\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0me\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    906\u001b[0m                 \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlog\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwarning\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Invalid Message:\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mexc_info\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mTrue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m: Interrupted by user"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Se soluciona volviendo a ejecutar el codigo sin volver a interrumpirlo"
+      ],
+      "metadata": {
+        "id": "SAjyvwW51fYf"
+      }
+    }
+  ]
+}
